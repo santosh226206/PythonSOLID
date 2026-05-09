@@ -1,3 +1,5 @@
+from typing import override
+
 from exception.InsufficientBalanceException import InsufficientBalanceException
 from SavingAccount import SavingAccount
 
@@ -11,14 +13,13 @@ class ConcreteSavingAccount(SavingAccount):
 
     def __init__(self):
         self.amount = 0
-
+    @override
     def deposit(self, amount):
-
         if amount <= 0:
             raise ValueError("Deposit amount must be greater than 0")
 
         self.amount += amount
-
+    @override
     def withdraw(self, amount):
 
         if amount <= 0:
